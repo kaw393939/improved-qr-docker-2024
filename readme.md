@@ -19,7 +19,7 @@ PUT YOUR QR CODE IMAGE
 ## Lesson Video
 
 1.  [Scaling and Backend Software Engineering](https://youtu.be/v3LxCmYQVS4)
-3.  [Docker Intro]()
+3.  [Docker and Cloud Computing Intro](https://youtu.be/FpeGzRkBycw)
 
 
 ## Readings / Tutorials - No, really you should read these
