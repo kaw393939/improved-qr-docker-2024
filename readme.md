@@ -70,17 +70,20 @@ Mounts a host directory to the container for storing QR codes.
 
 ```sh
 docker run -d --name qr-generator \
-  -e QR_DATA_URL='https://example.com' \
   -e QR_CODE_DIR='qr_codes' \
-  -e QR_CODE_FILENAME='exampleQR.png' \
   -e FILL_COLOR='blue' \
   -e BACK_COLOR='yellow' \
   -v /host/path/for/qr_codes:/app/qr_codes \
   my-qr-app
 ```
 
-A comprehensive command that configures the QR code settings and mounts volumes for QR codes and logs.
+A comprehensive command that configures the QR code settings and mounts volumes for QR codes.
 
+## Setting the arg for the url from the terminal
+```sh
+docker run -v .:/app qrcode --url htt/www.nobdoy.com
+```
+This is how you would set the url for the qr code
 ### Basic Docker Commands Explained
 
 **Building an Image**
