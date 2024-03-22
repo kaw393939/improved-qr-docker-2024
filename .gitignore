@@ -4,7 +4,7 @@ images
 __pycache__/
 *.py[cod]
 *$py.class
-
+qr_codes
 # C extensions
 *.so
 
