@@ -148,3 +148,8 @@ docker logs container_name
 Displays the logs from a running or stopped container.
 
 These commands cover the essentials of building, running, and managing Docker containers and images, along with specific examples for your QR code generation application.
+
+Log:
+![Alt text](2222.png)
+qr code:
+![Alt text](QRCode.png)
