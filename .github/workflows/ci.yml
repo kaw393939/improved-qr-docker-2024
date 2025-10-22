@@ -99,9 +99,28 @@ jobs:
     
     - name: Test Docker container
       run: |
+        # Create test output directory with proper permissions
         mkdir -p test_output
-        docker run --rm -v $(pwd)/test_output:/app/qr_codes qr-generator --url https://github.com/test
+        chmod 777 test_output
+        
+        # Run container and capture output for debugging
+        echo "Running QR generator container..."
+        docker run --rm \
+          --user $(id -u):$(id -g) \
+          -v $(pwd)/test_output:/app/qr_codes \
+          -e QR_CODE_DIR=/app/qr_codes \
+          qr-generator --url https://github.com/test
+        
         # Check if QR code was generated
+        echo "Contents of test_output directory:"
         ls -la test_output/
+        
         # Verify QR code file exists
-        test -f test_output/*.png && echo "QR code generated successfully!"
+        if ls test_output/*.png 1> /dev/null 2>&1; then
+          echo "✅ QR code generated successfully!"
+          echo "Generated files:"
+          ls -la test_output/*.png
+        else
+          echo "❌ No QR code found in test_output/"
+          exit 1
+        fi
